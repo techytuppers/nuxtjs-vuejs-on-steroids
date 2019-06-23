@@ -1,6 +1,10 @@
 <template>
   <section class="container">
-    <nuxt-link to="/users">Users</nuxt-link>
+    <nuxt-link to="/users" class="button">Users</nuxt-link>
+    <br />
+    <button @click="goToProducts" class="button">Products</button>
+    <!-- OR -->
+    <button @click="$router.push('/products')" class="button">Products</button>
   </section>
 </template>
 
@@ -10,6 +14,11 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
+  },
+  methods: {
+    goToProducts() {
+      this.$router.push('/products')
+    }
   }
 }
 </script>
@@ -44,5 +53,18 @@ export default {
 
 .links {
   padding-top: 15px;
+}
+
+.button {
+  display: block;
+  background-color: paleturquoise;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  margin: 0 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
 </style>
