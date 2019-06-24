@@ -1,8 +1,8 @@
 <template>
-  <form>
+  <div>
     <input type="text" v-model="userId">
     <button @click="onLoadUser">Load User</button>
-  </form>
+  </div>
 </template>
 
 <script>
