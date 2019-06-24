@@ -14,6 +14,7 @@ export default {
 
     // Checks for any number using regex
     return /^\d+$/g.test(data.params.id);
-  }
+  },
+  layout: 'users'
 }
 </script>
