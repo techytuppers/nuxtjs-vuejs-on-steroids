@@ -1,8 +1,19 @@
 <template>
-  <div>
+  <div class="container">
+    <Header/>
     <nuxt />
   </div>
 </template>
+
+<script>
+import Header from '~/components/Header.vue'
+
+export default {
+  components: {
+    Header
+  }
+}
+</script>
 
 <style>
 html {
@@ -51,5 +62,10 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+
+.container {
+  margin: 0 auto;
+  min-height: 100vh;
 }
 </style>
