@@ -5,7 +5,6 @@
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas illum aspernatur praesentium consequatur dicta? Aliquid cum, ipsam magnam quaerat ipsa soluta animi quibusdam consectetur aspernatur impedit. A commodi maiores rem.</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas illum aspernatur praesentium consequatur dicta? Aliquid cum, ipsam magnam quaerat ipsa soluta animi quibusdam consectetur aspernatur impedit. A commodi maiores rem.</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas illum aspernatur praesentium consequatur dicta? Aliquid cum, ipsam magnam quaerat ipsa soluta animi quibusdam consectetur aspernatur impedit. A commodi maiores rem.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas illum aspernatur praesentium consequatur dicta? Aliquid cum, ipsam magnam quaerat ipsa soluta animi quibusdam consectetur aspernatur impedit. A commodi maiores rem.</p>
   </div>
 </template>
 
