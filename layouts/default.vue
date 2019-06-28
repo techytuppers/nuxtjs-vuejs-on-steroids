@@ -6,7 +6,7 @@
 
 <style>
   html {
-    font-family: "Roboto", sans-serif;
+    font-family: 'Open Sans', sans-serif;
   }
 
   body {
