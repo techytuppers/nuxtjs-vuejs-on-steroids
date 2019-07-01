@@ -90,6 +90,6 @@ export default {
 .nav-item a:hover,
 .nav-item a:active,
 .nav-item a.nuxt-link-active {
-  color: red;
+  color: rgb(121, 32, 156);
 }
 </style>
