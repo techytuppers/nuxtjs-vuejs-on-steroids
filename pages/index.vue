@@ -4,27 +4,37 @@
       <h1>Get the latest tech news</h1>
     </section>
     <section class="featured-posts">
-      <nuxt-link :to='/posts/ + 1' class="post-preview">
-        <article>
-          <div class="post-thumbnail" style="background-image: url('http://placekitten.com/600/400')"></div>
-          <div class="post-content">
-            <h1>Post Title</h1>
-            <p>Preview Text</p>
-          </div>
-        </article>
-      </nuxt-link>
-      <nuxt-link :to='/posts/ + 2' class="post-preview">
-        <article>
-          <div class="post-thumbnail" style="background-image: url('http://placekitten.com/600/400')"></div>
-          <div class="post-content">
-            <h1>Post Title</h1>
-            <p>Preview Text</p>
-          </div>
-        </article>
-      </nuxt-link>
+      <PostPreview 
+        id="1"
+        title="Well hello there!"
+        previewText="This is my first post!"
+        thumbnail="http://placekitten.com/700/400"
+      />
+      <PostPreview 
+        id="2"
+        title="Hello there!"
+        previewText="This is my second post!"
+        thumbnail="http://placekitten.com/700/400"
+      />
+      <PostPreview 
+        id="3"
+        title="Hello there again!"
+        previewText="This is my third post!"
+        thumbnail="http://placekitten.com/700/400"
+      />
     </section>
   </div>
 </template>
+
+<script>
+import PostPreview from '~/components/Posts/PostPreview';
+export default {
+  components: {
+    PostPreview
+  }
+}
+</script>
+
 
 <style scoped>
 .intro {
@@ -64,41 +74,5 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-}
-
-.post-preview {
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 2px #ccc;
-  background-color: white;
-  width: 90%;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-@media (min-width: 850px) {
-  .post-preview {
-    width: 400px;
-    margin: 10px;
-  }
-}
-
-.post-thumbnail {
-  width: 100%;
-  height: 200px;
-  background-position: center;
-  background-size: cover;
-}
-
-.post-content {
-  padding: 10px;
-  text-align: center;
-}
-
-a:hover .post-content,
-a:active .post-content {
-  background-color: #ccc;
 }
 </style>
