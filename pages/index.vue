@@ -13,13 +13,23 @@ export default {
   components: {
     PostList
   },
-  data() {
-    return {
-      loadedPosts: [
-        { id: '1', title: 'First Post', previewText: 'This is for our first post', thumbnail: 'http://placekitten.com/600/500'},
-        { id: '2', title: 'Second Post', previewText: 'This is for our second post', thumbnail: 'http://placekitten.com/1200/1000'}
-      ]
-    }
+  asyncData(context, callback) {
+    setTimeout(() => {
+      callback(null, {
+        loadedPosts: [
+          { id: '1', title: 'First Post', previewText: 'This is for our first post', thumbnail: 'http://placekitten.com/600/500'},
+          { id: '2', title: 'Second Post', previewText: 'This is for our second post', thumbnail: 'http://placekitten.com/1200/1000'}
+        ]
+      })
+    }, 1500)
+  },
+  // data() {
+  //   return {
+  //     loadedPosts: []
+  //   }
+  // },
+  created() {
+    
   }
 }
 </script>
