@@ -18,7 +18,7 @@ export default {
           {id: "3", title: "Another 3 title", previewText: "Some preview text", thumbnail: "http://placekitten.com/400/400"},
           {id: "5", title: "Another 5 title", previewText: "Some preview text", thumbnail: "http://placekitten.com/400/500"},
         ]
-      }), 3000)
+      }), 1000)
     })
   }
 }

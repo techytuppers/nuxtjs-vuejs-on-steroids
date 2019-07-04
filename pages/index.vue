@@ -16,6 +16,7 @@ export default {
   asyncData(context) {
     return new Promise((resolve, reject) => {
       console.log('asyncData is executed!');
+      console.log(context);
       setTimeout(() => resolve({
         loadedPosts: [
           { id: '1', title: 'First Post', previewText: 'This is for our first post', thumbnail: 'http://placekitten.com/600/500'},
