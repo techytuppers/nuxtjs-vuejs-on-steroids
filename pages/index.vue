@@ -3,7 +3,7 @@
     <section class="intro">
       <h1>Get the latest tech news</h1>
     </section>
-    <PostList :posts="loadedPosts"/>
+    <PostList :posts="showMeThePosts"/>
   </div>
 </template>
 
@@ -13,25 +13,10 @@ export default {
   components: {
     PostList
   },
-  asyncData(context) {
-    return new Promise((resolve, reject) => {
-      console.log('asyncData is executed!');
-      console.log(context);
-      setTimeout(() => resolve({
-        loadedPosts: [
-          { id: '1', title: 'First Post', previewText: 'This is for our first post', thumbnail: 'http://placekitten.com/600/500'},
-          { id: '2', title: 'Second Post', previewText: 'This is for our second post', thumbnail: 'http://placekitten.com/1200/1000'}
-        ]
-      }), 1500)
-    })
-  },
-  // data() {
-  //   return {
-  //     loadedPosts: []
-  //   }
-  // },
-  created() {
-    
+  computed: {
+    showMeThePosts () {
+      return this.$store.getters['posts/loadedPosts'];
+    }
   }
 }
 </script>
