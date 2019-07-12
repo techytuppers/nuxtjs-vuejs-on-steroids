@@ -17,6 +17,10 @@ export const actions = ({
 export const getters = ({
   loadedPosts(state) {
     return state.loadedPosts
-  }
+  },
+  // To get get post from loaded history
+  getPost: (state) => (payload) => {
+      return state.loadedPosts.find(post => post.id == payload);
+    }
 })
 

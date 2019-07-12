@@ -1,6 +1,7 @@
 <template>
   <div class="single-post-page">
     <section class="post">
+      <!-- <p>{{ this.loadedPost }}</p> -->
       <h1 class="post-title">{{ loadedPost.title }}</h1>
       <div class="post-details">
         <div class="post-detail">Last updated on {{ loadedPost.updatedDate }}</div>
@@ -15,25 +16,30 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   asyncData(context) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => resolve ({
-        loadedPost: {
-          id: "1", 
-          title: "Another title (ID:" + context.params.id + " or " + context.route.params.id + ")", 
-          previewText: "Some preview text", 
-          thumbnail: "http://placekitten.com/400/400",
-          author: "Sarah Tupman",
-          content: "Dummy text here that isn't the preview text",
-          updatedDate: new Date(),
-        }
-      }), 1000)
-    });
+    return axios.get('https://nuxtjs-vuejs-on-steroids.firebaseio.com/posts/' + context.params.id + '.json')
+    .then(res => {
+      console.log('https://nuxtjs-vuejs-on-steroids.firebaseio.com/posts' + context.params.id + '.json');
+      console.log(res.data);
+      return {
+        loadedPost: res.data
+      }
+    })
+    .catch(e => context.error(e));
+  },
+  created() {
+    // console.log(this.$store.state);
   }
+  // computed: {
+  //   // Use this for offline individual post loading from static store content
+  //   loadedPost() {
+  //     return this.$store.getters['posts/getPost'](this.$route.params.id);
+  //   }
+  // }
 }
 </script>
-
 
 <style scoped>
 .single-post-page {

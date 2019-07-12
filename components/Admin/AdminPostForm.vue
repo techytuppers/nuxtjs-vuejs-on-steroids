@@ -42,7 +42,7 @@ export default {
         title: '',
         thumbnail: '',
         previewText: '',
-        content: ''
+        content: '',
       }
     }
   },
