@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import AdminPostForm from '@/components/Admin/AdminPostForm';
 
 export default {
@@ -14,15 +15,23 @@ export default {
   components: {
     AdminPostForm
   },
-  data() {
-    return {
-      loadedPost: {
-        author: 'Sarah Tupman',
-        title: 'My awesome post',
-        content: 'Super amazing content goes here.',
-        thumbnailLink: 'http://placekitten/700/500'
+  asyncData(context) {
+    return axios.get('https://nuxtjs-vuejs-on-steroids.firebaseio.com/posts/' + context.params.postId + '.json')
+    .then(res => {
+      console.log('https://nuxtjs-vuejs-on-steroids.firebaseio.com/posts' + context.params.postId + '.json');
+      console.log(res.data);
+      return {
+        loadedPost: res.data
       }
-    }
+    })
+    .catch(e => context.error(e));
+  },
+  computed: {
+    // Use this for offline individual post loading from static store content
+    // loadedPost() {
+    //   console.log(this.$route.params.id);
+    //   return this.$store.getters['posts/getPost'](this.$route.params.postId);
+    // }
   }
 }
 </script>

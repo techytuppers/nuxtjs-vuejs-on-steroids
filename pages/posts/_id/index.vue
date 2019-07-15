@@ -29,15 +29,12 @@ export default {
     })
     .catch(e => context.error(e));
   },
-  created() {
-    // console.log(this.$store.state);
+  computed: {
+    // Use this for offline individual post loading from static store content
+    // loadedPost() {
+    //   return this.$store.getters['posts/getPost'](this.$route.params.id);
+    // }
   }
-  // computed: {
-  //   // Use this for offline individual post loading from static store content
-  //   loadedPost() {
-  //     return this.$store.getters['posts/getPost'](this.$route.params.id);
-  //   }
-  // }
 }
 </script>
 
