@@ -1,7 +1,7 @@
 <template>
   <div class="admin-post-page">
     <section class="update-form">
-      <AdminPostForm :post="loadedPost"/>
+      <AdminPostForm :post="loadedPost" @submit="onSubmitted"/>
     </section>
   </div>
 </template>
@@ -26,13 +26,22 @@ export default {
     })
     .catch(e => context.error(e));
   },
-  computed: {
+  methods: {
+    onSubmitted(editedPost) {
+      axios.put('https://nuxtjs-vuejs-on-steroids.firebaseio.com/posts/' + this.$route.params.postId + '.json', editedPost)
+      .then(res => {
+        this.$router.push('/admin')
+      })
+      .catch(e => console.log(e))
+    }
+  }
+  // computed: {
     // Use this for offline individual post loading from static store content
     // loadedPost() {
     //   console.log(this.$route.params.id);
     //   return this.$store.getters['posts/getPost'](this.$route.params.postId);
     // }
-  }
+  // }
 }
 </script>
 
