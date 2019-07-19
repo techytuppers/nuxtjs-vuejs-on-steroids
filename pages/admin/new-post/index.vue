@@ -17,12 +17,10 @@ export default {
   },
   methods: {
     onSubmitted(postData) {
-      axios.post('https://nuxtjs-vuejs-on-steroids.firebaseio.com/posts.json', {
-        ...postData,
-        updatedDate : new Date()
+      this.$store.dispatch('posts/addPost', postData)
+      .then(() => {
+        this.$router.push('/admin');
       })
-      .then(result => console.log(result))
-      .catch(e => console.log(e));
     }
   }
 }

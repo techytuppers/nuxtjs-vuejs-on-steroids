@@ -21,18 +21,17 @@ export default {
       console.log('https://nuxtjs-vuejs-on-steroids.firebaseio.com/posts' + context.params.postId + '.json');
       console.log(res.data);
       return {
-        loadedPost: res.data
+        loadedPost: {...res.data, id: context.params.postId}
       }
     })
     .catch(e => context.error(e));
   },
   methods: {
-    onSubmitted(editedPost) {
-      axios.put('https://nuxtjs-vuejs-on-steroids.firebaseio.com/posts/' + this.$route.params.postId + '.json', editedPost)
-      .then(res => {
-        this.$router.push('/admin')
-      })
-      .catch(e => console.log(e))
+    onSubmitted(loadedPost) {
+      this.$store.dispatch('posts/editPost', loadedPost)
+        .then(() => {
+          this.$router.push('/admin')
+        });
     }
   }
   // computed: {
