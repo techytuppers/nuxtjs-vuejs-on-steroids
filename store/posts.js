@@ -27,14 +27,14 @@ export const actions = ({
       updatedDate : new Date()
     }
     return axios
-    .post('https://nuxtjs-vuejs-on-steroids.firebaseio.com/posts.json', createdPost)
+    .post(process.env.baseUrl + '/posts.json', createdPost)
     .then(result => {
       vuexContext.commit('addPost', {...createdPost, id: result.data.name})
     })
     .catch(e => console.log(e));
   },
   editPost(vuexContext, editedPost) {
-    return axios.put('https://nuxtjs-vuejs-on-steroids.firebaseio.com/posts/' + editedPost.id + '.json', editedPost)
+    return axios.put(process.env.baseUrl + '/posts/' + editedPost.id + '.json', editedPost)
       .then(res => {
         vuexContext.commit('editPost', editedPost);
       })

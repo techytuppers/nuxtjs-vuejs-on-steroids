@@ -19,10 +19,8 @@
 import axios from 'axios';
 export default {
   asyncData(context) {
-    return axios.get('https://nuxtjs-vuejs-on-steroids.firebaseio.com/posts/' + context.params.id + '.json')
+    return axios.get(process.env.baseUrl + '/posts/' + context.params.id + '.json')
     .then(res => {
-      console.log('https://nuxtjs-vuejs-on-steroids.firebaseio.com/posts' + context.params.id + '.json');
-      console.log(res.data);
       return {
         loadedPost: res.data
       }

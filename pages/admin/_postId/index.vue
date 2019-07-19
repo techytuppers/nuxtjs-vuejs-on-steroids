@@ -16,9 +16,9 @@ export default {
     AdminPostForm
   },
   asyncData(context) {
-    return axios.get('https://nuxtjs-vuejs-on-steroids.firebaseio.com/posts/' + context.params.postId + '.json')
+    return axios.get(process.env.baseUrl + '/posts/' + context.params.postId + '.json')
     .then(res => {
-      console.log('https://nuxtjs-vuejs-on-steroids.firebaseio.com/posts' + context.params.postId + '.json');
+      console.log(process.env.baseUrl + '/posts' + context.params.postId + '.json');
       console.log(res.data);
       return {
         loadedPost: {...res.data, id: context.params.postId}

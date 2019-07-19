@@ -44,5 +44,8 @@ export default {
     */
     extend(config, ctx) {
     }
+  },
+  env: {
+    baseUrl: process.env.BASE_URL || 'https://nuxtjs-vuejs-on-steroids.firebaseio.com',
   }
 }
