@@ -33,6 +33,9 @@ export default {
           this.$router.push('/admin')
         });
     }
+  },
+  head: {
+    title: "Override the title tag"
   }
   // computed: {
     // Use this for offline individual post loading from static store content
